@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import ClassCounter from "./components/ClassCounter"
 import HooksCounter from './components/HooksCounter';
@@ -13,6 +13,12 @@ import MouseContainer from './components/MouseContainer';
 import ClassIntervalCounter from './components/ClassIntervalCounter';
 import HookIntervalCounter from './components/HookIntervalCounter';
 import DataFetching from './components/DataFetching';
+import HookComponentC from './components/HookComponentC';
+import HookCounterOne from './components/HookCounterOne';
+import HookCounterTwo from './components/HookCounterTwo';
+
+export const UserContext= React.createContext(); //single props usage
+export const ChannelContext= React.createContext(); //multiple props usage
 
 function App() {
   return (
@@ -42,6 +48,16 @@ function App() {
 
       <DataFetching></DataFetching>
 
+      <UserContext.Provider value={"Nishant Choudhary"}>
+        <ChannelContext.Provider value={"ATOM"}>
+          <HookComponentC />
+        </ChannelContext.Provider>
+      </UserContext.Provider>
+
+      <br />
+      <hr />
+      <HookCounterOne />
+      <HookCounterTwo />
     </div>
   );
 }
