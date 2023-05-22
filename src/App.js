@@ -16,6 +16,7 @@ import DataFetching from './components/DataFetching';
 import HookComponentC from './components/HookComponentC';
 import HookCounterOne from './components/HookCounterOne';
 import HookCounterTwo from './components/HookCounterTwo';
+import HookCounter3 from './components/HookCounter3';
 
 export const UserContext= React.createContext(); //single props usage
 export const ChannelContext= React.createContext(); //multiple props usage
@@ -58,6 +59,7 @@ function App() {
       <hr />
       <HookCounterOne />
       <HookCounterTwo />
+      <HookCounter3 />
     </div>
   );
 }
