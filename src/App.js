@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useReducer } from 'react';
 import './App.css';
 import ClassCounter from "./components/ClassCounter"
 import HooksCounter from './components/HooksCounter';
@@ -17,11 +17,35 @@ import HookComponentC from './components/HookComponentC';
 import HookCounterOne from './components/HookCounterOne';
 import HookCounterTwo from './components/HookCounterTwo';
 import HookCounter3 from './components/HookCounter3';
+import HookComponentAA from './components/HookComponentAA';
+import HookComponentBB from './components/HookComponentBB';
+import HookComponentCC from './components/HookComponentCC';
 
 export const UserContext= React.createContext(); //single props usage
 export const ChannelContext= React.createContext(); //multiple props usage
 
+export const CountContext= React.createContext();
+const intialState=0;
+
+const reducer= (currentState,action)=>{
+    switch (action) {
+        case 'increment':
+            return currentState+1;
+            break;
+        case 'decrement':
+            return currentState-1;
+            break;
+        case 'reset':
+            return intialState;
+            break;
+        default:
+            return currentState
+            break;
+    }
+}
+
 function App() {
+  const [count, dispatch] = useReducer(reducer,intialState);
   return (
     <div className="App">
       <ClassCounter />
@@ -49,17 +73,26 @@ function App() {
 
       <DataFetching></DataFetching>
 
+      {/* useContext */}
       <UserContext.Provider value={"Nishant Choudhary"}>
         <ChannelContext.Provider value={"ATOM"}>
           <HookComponentC />
         </ChannelContext.Provider>
       </UserContext.Provider>
 
+      {/* useReducer */}
       <br />
       <hr />
       <HookCounterOne />
       <HookCounterTwo />
       <HookCounter3 />
+
+      <CountContext.Provider value={{countState: count,countDisptach:dispatch}} >
+        Count- {count}
+        <HookComponentAA />
+        <HookComponentBB />
+        <HookComponentCC />
+      </CountContext.Provider>
     </div>
   );
 }
