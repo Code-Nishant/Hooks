@@ -22,6 +22,8 @@ import HookComponentBB from './components/HookComponentBB';
 import HookComponentCC from "./components/HookComponentCC";
 import DataFetchingOne from './components/DataFetchingOne';
 import DataFetchingTwo from './components/DataFetchingTwo';
+import HookParentComponent from './components/HookParentComponent';
+import Counter from './components/Counter';
 
 export const UserContext= React.createContext(); //single props usage
 export const ChannelContext= React.createContext(); //multiple props usage
@@ -30,16 +32,16 @@ export const CountContext= React.createContext();
 const intialState=0;
 
 const reducer= (currentState,action)=>{
-    switch (action) {
-        case 'increment':
-            return currentState+1;
-        case 'decrement':
-            return currentState-1;
-        case 'reset':
-            return intialState;
-        default:
-            return currentState
-    }
+  switch (action) {
+    case 'increment':
+        return currentState+1;
+    case 'decrement':
+        return currentState-1;
+    case 'reset':
+        return intialState;
+    default:
+        return currentState
+  }
 }
 
 function App() {
@@ -94,6 +96,12 @@ function App() {
 
       <DataFetchingOne />
       <DataFetchingTwo />
+
+      {/* useCallback */}
+      <br />
+      <hr />
+      <HookParentComponent />
+      <Counter />
       </div>
   );
 }
