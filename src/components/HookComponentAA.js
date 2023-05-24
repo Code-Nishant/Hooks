@@ -5,7 +5,7 @@ function HookComponentAA() {
     const countContext=useContext(CountContext)
   return (
     <div>
-        HookComponentAA
+        HookComponentAA Count-{countContext.countState}
         <button onClick={()=>{countContext.countDispatch('increment')}}>Increment</button>
         <button onClick={()=>{countContext.countDispatch('decrement')}}>Decrement</button>
         <button onClick={()=>{countContext.countDispatch('reset')}}>Reset</button>

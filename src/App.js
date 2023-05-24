@@ -19,7 +19,7 @@ import HookCounterTwo from './components/HookCounterTwo';
 import HookCounter3 from './components/HookCounter3';
 import HookComponentAA from './components/HookComponentAA';
 import HookComponentBB from './components/HookComponentBB';
-import HookComponentCC from './components/HookComponentCC';
+import HookComponentCC from "./components/HookComponentCC";
 
 export const UserContext= React.createContext(); //single props usage
 export const ChannelContext= React.createContext(); //multiple props usage
@@ -31,16 +31,12 @@ const reducer= (currentState,action)=>{
     switch (action) {
         case 'increment':
             return currentState+1;
-            break;
         case 'decrement':
             return currentState-1;
-            break;
         case 'reset':
             return intialState;
-            break;
         default:
             return currentState
-            break;
     }
 }
 
@@ -87,13 +83,13 @@ function App() {
       <HookCounterTwo />
       <HookCounter3 />
 
-      <CountContext.Provider value={{countState: count,countDisptach:dispatch}} >
+      <CountContext.Provider value={{countState: count, countDispatch: dispatch}}>
         Count- {count}
         <HookComponentAA />
         <HookComponentBB />
         <HookComponentCC />
       </CountContext.Provider>
-    </div>
+      </div>
   );
 }
 
