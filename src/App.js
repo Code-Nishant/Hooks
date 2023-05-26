@@ -24,6 +24,7 @@ import DataFetchingOne from './components/DataFetchingOne';
 import DataFetchingTwo from './components/DataFetchingTwo';
 import HookParentComponent from './components/HookParentComponent';
 import Counter from './components/Counter';
+import HookFocusInput from './components/HookFocusInput';
 
 export const UserContext= React.createContext(); //single props usage
 export const ChannelContext= React.createContext(); //multiple props usage
@@ -101,7 +102,16 @@ function App() {
       <br />
       <hr />
       <HookParentComponent />
+
+      {/* useMemo */}
+      <br />
+      <hr />
       <Counter />
+
+      {/* useRef */}
+      <br />
+      <hr />
+      <HookFocusInput />
       </div>
   );
 }
