@@ -25,6 +25,13 @@ import DataFetchingTwo from './components/DataFetchingTwo';
 import HookParentComponent from './components/HookParentComponent';
 import Counter from './components/Counter';
 import HookFocusInput from './components/HookFocusInput';
+import ClassTimer from './components/ClassTimer';
+import HookTimer from './components/HookTimer';
+import HookDocTitleOne from './components/HookDocTitleOne';
+import HookDocTitleTwo from './components/HookDocTitleTwo';
+import HookDocCounterOne from './components/HookDocCounterOne';
+import HookDocCounterTwo from './components/HookDocCounterTwo';
+import HookDocUserFormOne from './components/HookDocUserFormOne';
 
 export const UserContext= React.createContext(); //single props usage
 export const ChannelContext= React.createContext(); //multiple props usage
@@ -112,6 +119,20 @@ function App() {
       <br />
       <hr />
       <HookFocusInput />
+
+      <ClassTimer />
+      <HookTimer />
+
+      {/* custom Hook */}
+      <br />
+      <hr />
+      <HookDocTitleOne />
+      <HookDocTitleTwo />
+
+      <HookDocCounterOne />
+      <HookDocCounterTwo />
+
+      <HookDocUserFormOne />
       </div>
   );
 }
