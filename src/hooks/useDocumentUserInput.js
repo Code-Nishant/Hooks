@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 
-function useDocumentUserInput(intialValue) {
-  
-    const [value, setValue]=useState(intialValue)
-    
-    const reset=()=>{
-        setValue(intialValue)
+function useDocumentUserInput(initialValue) {
+
+    const [value, setValue] = useState(initialValue)
+
+    const reset = () => {
+        setValue('')
     }
-    
-    const bind ={
+
+    const bind = {
         value,
-        onchange: e=>{
+        onChange: e => {
             setValue(e.target.value)
         }
     }
-
-    return [value, bind, reset]
+    
+  return [value, bind, reset]
 }
 
 export default useDocumentUserInput
